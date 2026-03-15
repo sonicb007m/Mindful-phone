@@ -33,9 +33,9 @@
 }
 
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html, body { height:100%; background:var(--bg); color:var(--text); font-family:'Nunito',sans-serif; font-weight:400; overflow:hidden; }
-
-#app { display:flex; flex-direction:column; height:100vh; height:100dvh; max-width:480px; margin:0 auto; overflow:hidden; }
+html { height:100%; overflow:hidden; }
+body { height:100%; background:var(--bg); color:var(--text); font-family:'Nunito',sans-serif; font-weight:400; overflow:hidden; position:fixed; width:100%; top:0; left:0; }
+#app { display:flex; flex-direction:column; height:100%; height:100dvh; max-width:480px; margin:0 auto; overflow:hidden; background:var(--bg); }
 
 /* HEADER */
 .app-header {
@@ -75,7 +75,7 @@ html, body { height:100%; background:var(--bg); color:var(--text); font-family:'
 .tab-label { font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
 
 /* SCREENS */
-.screens { flex:1; overflow:hidden; position:relative; min-height:0; }
+.screens { flex:1; overflow:hidden; position:relative; min-height:0; background:var(--bg); }
 .screen {
   position:absolute; inset:0; overflow-y:auto; overflow-x:hidden;
   padding: 14px 14px 80px;
@@ -83,6 +83,8 @@ html, body { height:100%; background:var(--bg); color:var(--text); font-family:'
   transform:translateY(6px);
   transition: opacity 0.22s ease, transform 0.22s ease;
   -webkit-overflow-scrolling:touch;
+  background:var(--bg);
+  isolation:isolate;
 }
 .screen.active { opacity:1; pointer-events:all; transform:translateY(0); }
 .screen::-webkit-scrollbar { display:none; }
